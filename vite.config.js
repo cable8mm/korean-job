@@ -1,5 +1,9 @@
 import { defineConfig } from 'vite';
 import laravel from 'laravel-vite-plugin';
+import os from 'os';
+
+const domain = "korean-job.test";
+const homedir = os.homedir();
 
 export default defineConfig({
     plugins: [
@@ -8,4 +12,14 @@ export default defineConfig({
             refresh: true,
         }),
     ],
+    server: {
+        https: {
+            key: homedir + "/.config/valet/Certificates/" + domain + ".key",
+            cert: homedir + "/.config/valet/Certificates/" + domain + ".crt",
+        },
+        host: domain,
+        hmr: {
+            host: domain,
+        },
+    },
 });
