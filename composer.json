@@ -1,9 +1,8 @@
 {
-    "name": "laravel/laravel",
+    "name": "cable8mm/korean-job",
     "type": "project",
-    "description": "The skeleton application for the Laravel framework.",
-    "keywords": ["laravel", "framework"],
-    "license": "MIT",
+    "description": "This project is intended for both Korean employees and employers.",
+    "keywords": ["jpb", "website", "employee", "empolyer"],
     "require": {
         "php": "^8.1",
         "guzzlehttp/guzzle": "^7.2",
@@ -12,6 +11,8 @@
         "laravel/tinker": "^2.8"
     },
     "require-dev": {
+        "barryvdh/laravel-debugbar": "^3.9",
+        "barryvdh/laravel-ide-helper": "^2.13",
         "fakerphp/faker": "^1.9.1",
         "laravel/pint": "^1.0",
         "laravel/sail": "^1.18",
@@ -38,7 +39,10 @@
             "@php artisan package:discover --ansi"
         ],
         "post-update-cmd": [
-            "@php artisan vendor:publish --tag=laravel-assets --ansi --force"
+            "@php artisan vendor:publish --tag=laravel-assets --ansi --force",
+            "Illuminate\\Foundation\\ComposerScripts::postUpdate",
+            "@php artisan ide-helper:generate",
+            "@php artisan ide-helper:meta"
         ],
         "post-root-package-install": [
             "@php -r \"file_exists('.env') || copy('.env.example', '.env');\""
