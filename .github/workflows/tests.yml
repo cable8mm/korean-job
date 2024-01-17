@@ -29,8 +29,11 @@ jobs:
 
       - name: Install Composer dependencies
         run: |
-          composer config "http-basic.nova.laravel.com" "${{ secrets.NOVA_USERNAME }}" "${{ secrets.NOVA_PASSWORD }}"
+          composer config http-basic.nova.laravel.com $NOVA_USERNAME $NOVA_PASSWORD
           composer install --prefer-dist --no-interaction --no-progress
+        env:
+          NOVA_USERNAME: ${{ secrets.NOVA_USERNAME }}
+          NOVA_PASSWORD: ${{ secrets.NOVA_PASSWORD }}
 
       - name: Copy environment file
         run: cp .env.example .env
