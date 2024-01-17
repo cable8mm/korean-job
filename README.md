@@ -1,6 +1,6 @@
 ## About Project Korean Job
 
-[![build & tests](https://github.com/cable8mm/korean-job/actions/workflows/build.yml/badge.svg)](https://github.com/cable8mm/korean-job/actions/workflows/build.yml)
+[![build & tests](https://github.com/cable8mm/korean-job/actions/workflows/tests.yml/badge.svg)](https://github.com/cable8mm/korean-job/actions/workflows/tests.yml)
 [![coding style](https://github.com/cable8mm/korean-job/actions/workflows/coding-style-php.yml/badge.svg)](https://github.com/cable8mm/korean-job/actions/workflows/coding-style-php.yml)
 [![release date](https://img.shields.io/github/release-date/cable8mm/korean-job)](https://github.com/cable8mm/korean-job/releases)
 [![minimum PHP version](https://img.shields.io/badge/php-%3E%3D_8.2.0-8892BF.svg)](https://github.com/cable8mm/korean-job)
