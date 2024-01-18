@@ -2,6 +2,10 @@
 
 namespace App\Nova;
 
+use App\Enums\JobApplyType;
+use App\Enums\JobHowToApply;
+use App\Enums\JobType;
+use App\Enums\TextareaType;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -71,39 +75,21 @@ class Job extends Resource
 
             Text::make('Working Area'),
 
-            Select::make('Job Type')->options([
-                'Full-time' => 'Full-time',
-                'Part-time' => 'Part-time',
-                'Contract' => 'Contract',
-                'Temporary' => 'Temporary',
-            ])->default('Full-time'),
+            Select::make('Job Type')->options(JobType::kvCases())->default(JobType::full_time),
 
             Text::make('Job Type Description')->nullable(),
 
-            Select::make('Description Type')->options(
-                [
-                    'Html' => 'Html',
-                    'Markdown' => 'Markdown',
-                    'Text' => 'Text',
-                ]
-            )->default('Markdown'),
+            Select::make('Description Type')->options(TextareaType::kvCases())->default(TextareaType::markdown),
 
             Trix::make('Description'),
 
-            Select::make('Apply Type')->options([
-                'Frequent' => 'Frequent',
-                'Periodic' => 'Periodic',
-            ])->default('Frequent'),
+            Select::make('Apply Type')->options(JobApplyType::kvCases())->default(JobApplyType::frequent),
 
             DateTime::make('Opened At'),
 
             DateTime::make('Closed At'),
 
-            Select::make('How To Apply')->options([
-                'Email' => 'Email',
-                'Website' => 'Website',
-                'This' => 'This',
-            ])->default('Email'),
+            Select::make('How To Apply')->options(JobHowToApply::kvCases())->default(JobHowToApply::email),
         ];
     }
 

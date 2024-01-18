@@ -18,7 +18,7 @@ class CompanyFactory extends Factory
     {
         return [
             'user_id' => 1,
-            'name' => fake()->name(),
+            'name' => fake()->company(),
         ];
     }
 }

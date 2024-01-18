@@ -2,6 +2,10 @@
 
 namespace Database\Factories;
 
+use App\Enums\JobApplyType;
+use App\Enums\JobHowToApply;
+use App\Enums\JobType;
+use App\Enums\TextareaType;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -33,7 +37,7 @@ class JobFactory extends Factory
         return [
             'user_id' => 1,
             'company_id' => 1,
-            'title' => fake()->company(),
+            'title' => fake()->sentence(),
             'has_career_period' => $has_career_period,
             'career_period_from' => $career_period_from,
             'career_period_to' => $career_period_to,
@@ -42,14 +46,14 @@ class JobFactory extends Factory
             'salary_to' => $salary_to,
             'education' => 'Bachelor of Science in Computer Engineering',
             'working_area' => fake()->address(),
-            'job_type' => fake()->randomElement(['Full-time', 'Part-time', 'Contract', 'Temporary']),
+            'job_type' => fake()->randomElement(JobType::kCases()),
             'job_type_description' => fake()->randomElement(['Cook', 'Restaurant Serving', 'Programmer']),
-            'description_type' => fake()->randomElement(['html', 'markdown', 'text']),
+            'description_type' => fake()->randomElement(TextareaType::kCases()),
             'description' => fake()->sentence(),
-            'apply_type' => fake()->randomElement(['Periodic', 'Frequent']),
+            'apply_type' => fake()->randomElement(JobApplyType::kCases()),
             'opened_at' => fake()->dateTime(),
             'closed_at' => fake()->dateTime(),
-            'how_to_apply' => fake()->randomElement(['email', 'website', 'this']),
+            'how_to_apply' => fake()->randomElement(JobHowToApply::kCases()),
         ];
     }
 }
