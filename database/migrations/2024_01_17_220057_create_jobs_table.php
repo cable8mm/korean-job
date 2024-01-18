@@ -20,8 +20,8 @@ return new class extends Migration
             $table->unsignedSmallInteger('career_period_from')->nullable();
             $table->unsignedSmallInteger('career_period_to')->nullable();
             $table->boolean('has_salary')->default(true);
-            $table->unsignedSmallInteger('salary_from')->nullable();
-            $table->unsignedSmallInteger('salary_to')->nullable();
+            $table->unsignedInteger('salary_from')->nullable();
+            $table->unsignedInteger('salary_to')->nullable();
             $table->string('education', 100)->nullable();    // Bachelor of Science in Computer Engineering
             $table->string('working_area')->nullable();    // Auckland CBD, New Zealand
             $table->string('job_type', 20)->default('Full-time');   // Full-time, Part-time, Contract and Temporary

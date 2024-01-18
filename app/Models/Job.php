@@ -10,6 +10,13 @@ class Job extends Model
 {
     use HasFactory;
 
+    protected $casts = [
+        'opened_at' => 'datetime',
+        'closed_at' => 'datetime',
+        'has_career_period' => 'boolean',
+        'has_salary' => 'boolean',
+    ];
+
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
