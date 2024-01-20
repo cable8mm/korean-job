@@ -25,4 +25,14 @@ trait EnumCasesTrait
 
         return $output;
     }
+
+    public static function default(): string
+    {
+        return self::cases()[0]->value;
+    }
+
+    public static function kDefault(): string
+    {
+        return self::cases()[0]->name;
+    }
 }
