@@ -1,19 +1,14 @@
 <x-app-layout>
-    <x-slot name="header">
-        <h2 class="font-semibold text-xl text-gray-800 leading-tight">
-            {{ __('Home') }}
-        </h2>
-    </x-slot>
-
-    <div class="py-12">
+    <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            @foreach($jobs as $job)
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg">
-                <div class="p-6 text-gray-900">
-                    <a href="{{ route('job.show', $job->id) }}">{{ $job->title }}</a>
-                </div>
+            <h2 class="text-lg font-bold">{{ __('Job') }}</h2>
+            <div class="relative overflow-x-auto">
+                @include('job.partials.job-index')
             </div>
-            @endforeach
+            <h2 class="text-lg font-bold mt-4">{{ __('Notice') }}</h2>
+            <div class="relative overflow-x-auto">
+                @include('notice.partials.notice-index')
+            </div>
         </div>
     </div>
 </x-app-layout>

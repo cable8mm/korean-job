@@ -16,24 +16,28 @@ return new class extends Migration
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('company_id');
             $table->string('title');
-            $table->boolean('has_career_period')->default(true);  // Not-required,
-            $table->unsignedSmallInteger('career_period_from')->nullable();
-            $table->unsignedSmallInteger('career_period_to')->nullable();
+            $table->string('job_type', 20);   // Full-time, Part-time, Contract and Temporary
+            $table->string('job_position'); // Restaurant Manager
+            $table->string('job_requirement_certification')->nullable();    // Bachelor of Science in Computer Engineering
+            $table->unsignedSmallInteger('job_experience_period')->default(0);
+            $table->string('work_hours');   // 8am to 5pm, Monday to Friday
+            $table->string('working_area');    // Auckland CBD, New Zealand
+            $table->string('wages_and_benefits');   // We offer a competitive salary and a comprehensive benefits package.
+            $table->string('application_process');   // Please send a resume and completed employment application to the HR manager at abc@abc.com
             $table->boolean('has_salary')->default(true);
             $table->unsignedInteger('salary_from')->nullable();
             $table->unsignedInteger('salary_to')->nullable();
-            $table->string('education', 100)->nullable();    // Bachelor of Science in Computer Engineering
-            $table->string('working_area')->nullable();    // Auckland CBD, New Zealand
-            $table->string('job_type', 20)->default('Full-time');   // Full-time, Part-time, Contract and Temporary
-            $table->string('job_type_description')->nullable();
+            $table->string('job_required');   // Demonstrated compoter skills in MS Office, including Word, Excel and Outlook are a plus.
+            $table->string('job_preferred');   // CAs or CPAs is, preferred, but not required.
+            $table->unsignedSmallInteger('number_of_potisions');   // 0
             $table->string('description_type', 10)->default('markdown'); // html, markdown, text
             $table->string('description');
-            $table->string('apply_type')->default('Frequent');   // Periodic and Frequent
+            $table->string('contact');
             $table->dateTime('opened_at')->nullable();
             $table->dateTime('closed_at')->nullable();
-            $table->string('how_to_apply', 20)->default('email');   // email, website and this
             $table->unsignedBigInteger('hit')->default(0);
             $table->timestamps();
+
             $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
             $table->foreign('company_id')->references('id')->on('companies')->cascadeOnDelete();
         });
