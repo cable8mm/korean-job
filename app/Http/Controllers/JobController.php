@@ -23,8 +23,11 @@ class JobController extends Controller
     {
         DB::table('jobs')->where('id', $job->id)->update(['hit' => $job->hit + 1]);
 
+        $jobs = Job::latest()->paginate();
+
         return view('job.show', [
             'job' => $job,
+            'jobs' => $jobs,
         ]);
     }
 

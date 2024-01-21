@@ -12,11 +12,11 @@
 
                 <!-- Navigation Links -->
                 <div class="hidden space-x-8 sm:-my-px sm:ms-10 sm:flex">
-                    <x-nav-link :href="route('home')" :active="request()->routeIs('home')">
-                        {{ __('Home') }}
-                    </x-nav-link>
                     <x-nav-link :href="route('job')" :active="request()->routeIs('job')">
                         {{ __('Job') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('notice')" :active="request()->routeIs('notice')">
+                        {{ __('Notice') }}
                     </x-nav-link>
                 </div>
             </div>
