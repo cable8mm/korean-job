@@ -19,7 +19,7 @@ class AdminSeeder extends Seeder
      */
     public function run(): void
     {
-        static::$password = 'asdfasdf';
+        static::$password = Hash::make('asdfasdf');
 
         DB::table('admins')->insert([
             'name' => 'admin',
@@ -27,6 +27,8 @@ class AdminSeeder extends Seeder
             'email_verified_at' => now(),
             'password' => static::$password ??= Hash::make('password'),
             'remember_token' => Str::random(10),
+            'created_at' => now(),
+            'updated_at' => now(),
             'timezone' => fake()->timezone('NZ'),
         ]);
     }
