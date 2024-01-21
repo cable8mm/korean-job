@@ -283,5 +283,7 @@
     "Application Process": "지원방법",
     "Number Of Potisions": "모집 인원",
     "people": "명",
-    "Contact": "문의"
+    "Contact": "문의",
+    "8am to 5pm, Monday to Friday": "월~금 오전 8시 부터 오후 5시",
+    "If 0 is set, \"entry-level\" showed.": "0을 입력하면 \"신입\"으로 표시됩니다."
 }

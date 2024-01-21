@@ -2,8 +2,6 @@
 
 namespace App\Nova;
 
-use App\Enums\JobApplyType;
-use App\Enums\JobHowToApply;
 use App\Enums\JobType;
 use App\Enums\TextareaType;
 use Illuminate\Http\Request;
@@ -59,11 +57,21 @@ class Job extends Resource
 
             Text::make('Title')->rules('required'),
 
-            Boolean::make('Has Career Period'),
+            Select::make('Job Type')->options(JobType::kvCases())->default(JobType::full_time->name),
 
-            Number::make('Career Period From')->nullable()->default(0),
+            Text::make('Job Position')->rules('required'),
 
-            Number::make('Career Period To')->nullable()->default(0),
+            Text::make('Job Requirement Certification')->rules('required'),
+
+            Number::make('Job Experience Period')->rules('required')->default(0)->help(__('If 0 is set, "entry-level" showed.')),
+
+            Text::make('Work Hours')->rules('required')->help(__('8am to 5pm, Monday to Friday')),
+
+            Text::make('Working Area')->rules('required')->help(__('Auckland CBD, New Zealand')),
+
+            Text::make('Wages And Benefits')->rules('required')->help(__('We offer a competitive salary and a comprehensive benefits package.')),
+
+            Text::make('Application Process')->rules('required')->help(__('Please send a resume and completed employment application to the HR manager at abc@abc.com.')),
 
             Boolean::make('Has Salary'),
 
@@ -71,25 +79,21 @@ class Job extends Resource
 
             Currency::make('Salary To')->nullable(),
 
-            Text::make('Education'),
+            Text::make('Job Required')->rules('required')->help(__('Demonstrated compoter skills in MS Office, including Word, Excel and Outlook are a plus.')),
 
-            Text::make('Working Area'),
+            Text::make('Job Preferred')->nullable()->help(__('CAs or CPAs is, preferred, but not required.')),
 
-            Select::make('Job Type')->options(JobType::kvCases())->default(JobType::full_time),
-
-            Text::make('Job Type Description')->nullable(),
+            Number::make('Number Of Potisions')->rules(['required', 'numeric'])->default(0),
 
             Select::make('Description Type')->options(TextareaType::kvCases())->default(TextareaType::markdown),
 
             Trix::make('Description'),
 
-            Select::make('Apply Type')->options(JobApplyType::kvCases())->default(JobApplyType::frequent),
+            Text::make('Contact')->nullable()->help(__('You\d better let candidate know to connect as a phone or a email')),
 
             DateTime::make('Opened At'),
 
             DateTime::make('Closed At'),
-
-            Select::make('How To Apply')->options(JobHowToApply::kvCases())->default(JobHowToApply::email),
         ];
     }
 
