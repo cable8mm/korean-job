@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
+use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 
@@ -25,6 +26,9 @@ Route::get('/job/{job}', [JobController::class, 'show'])->name('job.show');
 Route::middleware('auth')->get('/job/{job}/edit', [JobController::class, 'edit'])->name('job.edit');
 Route::middleware('auth')->patch('/job/{job}', [JobController::class, 'update'])->name('job.update');
 Route::middleware('auth')->delete('/job/{job}', [JobController::class, 'destroy'])->name('job.destroy');
+
+Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
+Route::get('/notice/{notice}', [NoticeController::class, 'show'])->name('notice.show');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
