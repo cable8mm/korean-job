@@ -7,7 +7,7 @@
     focus:ring-indigo-500 rounded-md shadow-sm']) }}
     :value="old($name, $value)" required autofocus autocomplete="{{ $name }}">
     @foreach($options as $key => $option)
-    <option value="{{ $key }}" @if($key==$value) selected @endif>{{ $option }}</option>
+    <option value="{{ $key }}" @if($key==$value) selected @endif>{{ __($option) }}</option>
     @endforeach
 </select>
 <x-input-error class="mt-2" :messages="$errors->get($name)" />

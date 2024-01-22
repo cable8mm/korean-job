@@ -10,8 +10,8 @@
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             @include('job.partials.show-link-buttons')
-            <div class="flex shadow-sm sm:rounded-lg">
-                <div class="w-1/3 bg-white mr-2 p-4 text-gray-900">
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-3 2xl:grid-cols-3 shadow-sm sm:rounded-lg">
+                <div class=" bg-white p-4 text-gray-900">
                     <h3 class="font-bold pb-2">{{ __('Apply Required') }}</h3>
                     <div>
                         <dl>
@@ -34,7 +34,7 @@
                         </dl>
                     </div>
                 </div>
-                <div class="w-1/3 bg-white ml-2 p-4 text-gray-900">
+                <div class=" bg-white p-4 text-gray-900">
                     <h3 class="font-bold pb-2">{{ __('Working Conditions') }}</h3>
                     <div>
                         <dl>
@@ -47,9 +47,7 @@
                                 {{ $job->job_position }}
                             </x-x.dtdd-list>
                             <x-x.dtdd-list dt="{{__('Work Hours')}}">
-                                {{
-                                $job->work_hours
-                                }}
+                                {{ $job->work_hours }}
                             </x-x.dtdd-list>
                             <x-x.dtdd-list dt="{{__('Salary')}}">
                                 @if($job->has_salary)
@@ -65,7 +63,7 @@
                         </dl>
                     </div>
                 </div>
-                <div class="w-1/3 bg-white ml-2 p-4 text-gray-900">
+                <div class="col-span-1 md:col-span-2 xl:col-span-1 bg-white p-4 text-gray-900">
                     <h3 class="font-bold pb-2">{{ __('About Application') }}</h3>
                     <div>
                         <dl>

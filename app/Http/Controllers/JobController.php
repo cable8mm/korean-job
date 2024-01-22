@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Job;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
 use Illuminate\View\View;
 
@@ -33,31 +34,39 @@ class JobController extends Controller
 
     public function create(): View
     {
-        return view('job.create');
+        $companies = Auth::user()->companies()->pluck('name', 'id');
+
+        return view('job.create', [
+            'companies' => $companies,
+        ]);
     }
 
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
+            'company_id' => 'required',
             'title' => 'required',
-            'has_career_period' => 'nullable',
-            'career_period_from' => 'required',
-            'career_period_to' => 'nullable',
+            'job_type' => 'required',
+            'job_position' => 'required',
+            'job_requirement_certification' => 'nullable',
+            'job_experience_period' => ['required', 'integer'],
+            'work_hours' => 'required',
+            'working_area' => 'required',
+            'wages_and_benefits' => 'nullable',
+            'application_process' => 'required',
             'has_salary' => 'nullable',
             'salary_from' => 'nullable',
             'salary_to' => 'nullable',
-            'education' => 'nullable',
-            'working_area' => 'required',
-            'job_type' => 'required',
-            'job_type_description' => 'nullable',
-            'description' => 'nullable',
-            'apply_type' => 'required',
+            'job_required' => 'nullable',
+            'job_preferred' => 'nullable',
+            'number_of_potisions' => ['required', 'integer'],
+            'description' => 'required',
+            'contact' => 'required',
             'opened_at' => 'required',
             'closed_at' => 'required',
-            'how_to_apply' => 'required',
         ]);
 
-        $request->user()->job()->create($validated);
+        $request->user()->jobs()->create($validated);
 
         return redirect()->route('job')
             ->with('success', 'Post updated successfully.');
@@ -77,22 +86,26 @@ class JobController extends Controller
         $this->authorize('update', $job);
 
         $validated = $request->validate([
+            'company_id' => 'required',
             'title' => 'required',
-            'has_career_period' => 'nullable',
-            'career_period_from' => 'required',
-            'career_period_to' => 'nullable',
+            'job_type' => 'required',
+            'job_position' => 'required',
+            'job_requirement_certification' => 'nullable',
+            'job_experience_period' => ['required', 'integer'],
+            'work_hours' => 'required',
+            'working_area' => 'required',
+            'wages_and_benefits' => 'nullable',
+            'application_process' => 'required',
             'has_salary' => 'nullable',
             'salary_from' => 'nullable',
             'salary_to' => 'nullable',
-            'education' => 'nullable',
-            'working_area' => 'required',
-            'job_type' => 'required',
-            'job_type_description' => 'nullable',
-            'description' => 'nullable',
-            'apply_type' => 'required',
+            'job_required' => 'nullable',
+            'job_preferred' => 'nullable',
+            'number_of_potisions' => ['required', 'integer'],
+            'description' => 'required',
+            'contact' => 'required',
             'opened_at' => 'required',
             'closed_at' => 'required',
-            'how_to_apply' => 'required',
         ]);
 
         $newJob = $job->update($validated);
