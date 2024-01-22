@@ -9,6 +9,10 @@ class Qna extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
+    protected $guarded = [];
+
     protected $casts = [
         'is_blind' => 'boolean',
     ];
@@ -20,6 +24,11 @@ class Qna extends Model
 
     public function qnaAnswers()
     {
-        return $this->hasMany(QnaAnswer::class, 'id', 'best_qna_answer_id');
+        return $this->hasMany(QnaAnswer::class);
+    }
+
+    public function bestAnswer()
+    {
+        return $this->hasOne(QnaAnswer::class, 'id', 'best_qna_answer_id');
     }
 }

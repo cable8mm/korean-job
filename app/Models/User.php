@@ -52,4 +52,9 @@ class User extends Authenticatable
     {
         return $this->hasMany(Company::class);
     }
+
+    public function qnas()
+    {
+        return $this->hasMany(Qna::class);
+    }
 }

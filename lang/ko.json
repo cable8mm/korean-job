@@ -18,6 +18,7 @@
     "All rights reserved.": "모든 권리 보유.",
     "Already registered?": "계정이 있으신가요?",
     "Already Reported": "이미 보고됨",
+    "Answer Count": "답변 수",
     "Application Process": "지원방법",
     "Apply Required": "지원자격",
     "Archive": "보관소",
@@ -132,6 +133,7 @@
     "Job": "구인구직",
     "Job Experience Period": "필요경력",
     "Job Position": "모집분야",
+    "Job Posting": "구인 등록",
     "Job Preferred": "우대",
     "Job Required": "필수",
     "Job Type": "고용형태",
@@ -203,6 +205,7 @@
     "Profile": "프로필",
     "Profile Information": "프로필 정보",
     "Proxy Authentication Required": "프록시 인증 필요",
+    "Qna": "질문과 답변",
     "Railgun Error": "레일건 오류",
     "Range Not Satisfiable": "범위가 만족스럽지 않음",
     "Regards": "안부",
@@ -302,5 +305,5 @@
     "You are receiving this email because we received a password reset request for your account.": "귀하의 계정에 대한 비밀번호 재설정이 요청되어 이 메일이 발송되었습니다.",
     "You're logged in!": "로그인되었습니다!",
     "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다.",
-    "Job Posting": "구인 등록"
+    "Question": "질문"
 }

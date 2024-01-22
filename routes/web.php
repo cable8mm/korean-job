@@ -4,6 +4,7 @@ use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\QnaController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,6 +30,14 @@ Route::middleware('auth')->delete('/job/{job}', [JobController::class, 'destroy'
 
 Route::get('/notice', [NoticeController::class, 'index'])->name('notice');
 Route::get('/notice/{notice}', [NoticeController::class, 'show'])->name('notice.show');
+
+Route::get('/qna', [QnaController::class, 'index'])->name('qna');
+Route::get('/qna/create', [QnaController::class, 'create'])->name('qna.create');
+Route::middleware('auth')->post('/qna', [QnaController::class, 'store'])->name('qna.store');
+Route::get('/qna/{qna}', [QnaController::class, 'show'])->name('qna.show');
+Route::middleware('auth')->get('/qna/{qna}/edit', [QnaController::class, 'edit'])->name('qna.edit');
+Route::middleware('auth')->patch('/qna/{qna}', [QnaController::class, 'update'])->name('qna.update');
+Route::middleware('auth')->delete('/qna/{qna}', [QnaController::class, 'destroy'])->name('qna.destroy');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
