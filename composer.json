@@ -11,7 +11,8 @@
         "laravel/framework": "^10.10",
         "laravel/nova": "~4.0",
         "laravel/sanctum": "^3.3",
-        "laravel/tinker": "^2.8"
+        "laravel/tinker": "^2.8",
+        "livewire/livewire": "^3.3"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
