@@ -22,7 +22,7 @@ return new class extends Migration
             $table->unsignedSmallInteger('job_experience_period')->default(0);
             $table->string('work_hours');   // 8am to 5pm, Monday to Friday
             $table->string('working_area');    // Auckland CBD, New Zealand
-            $table->string('wages_and_benefits');   // We offer a competitive salary and a comprehensive benefits package.
+            $table->string('wages_and_benefits')->nullable();   // We offer a competitive salary and a comprehensive benefits package.
             $table->string('application_process');   // Please send a resume and completed employment application to the HR manager at abc@abc.com
             $table->boolean('has_salary')->default(true);
             $table->unsignedInteger('salary_from')->nullable();

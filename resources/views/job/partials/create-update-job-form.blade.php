@@ -10,9 +10,9 @@
     <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg py-4 mt-2">
         <div class="px-6 text-gray-900">
             <h3 class="font-bold pb-2">{{ __('Company') }}</h3>
-            <div>
-                <x-x.select-input-form :title="__('Company')" name="company_id" :value="$job->company_id ?? null"
-                    :options="$companies" class="mt-1 block w-full" isRequired />
+            <div class="leading-10">
+                <livewire:create-company :title="__('Company')" name="company_id" value="{{$job->company_id ?? ''}}"
+                    class="mt-1 block w-full" :button-name="__('Create Company')" isRequired />
             </div>
         </div>
     </div>

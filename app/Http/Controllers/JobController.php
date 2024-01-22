@@ -44,6 +44,7 @@ class JobController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $validated = $request->validate([
+            'company_id' => 'required',
             'title' => 'required',
             'job_type' => 'required',
             'job_position' => 'required',
@@ -51,6 +52,7 @@ class JobController extends Controller
             'job_experience_period' => ['required', 'integer'],
             'work_hours' => 'required',
             'working_area' => 'required',
+            'wages_and_benefits' => 'nullable',
             'application_process' => 'required',
             'has_salary' => 'nullable',
             'salary_from' => 'nullable',
@@ -64,7 +66,7 @@ class JobController extends Controller
             'closed_at' => 'required',
         ]);
 
-        $request->user()->job()->create($validated);
+        $request->user()->jobs()->create($validated);
 
         return redirect()->route('job')
             ->with('success', 'Post updated successfully.');
@@ -84,6 +86,7 @@ class JobController extends Controller
         $this->authorize('update', $job);
 
         $validated = $request->validate([
+            'company_id' => 'required',
             'title' => 'required',
             'job_type' => 'required',
             'job_position' => 'required',
@@ -91,6 +94,7 @@ class JobController extends Controller
             'job_experience_period' => ['required', 'integer'],
             'work_hours' => 'required',
             'working_area' => 'required',
+            'wages_and_benefits' => 'nullable',
             'application_process' => 'required',
             'has_salary' => 'nullable',
             'salary_from' => 'nullable',
