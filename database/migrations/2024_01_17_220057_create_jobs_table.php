@@ -27,8 +27,8 @@ return new class extends Migration
             $table->boolean('has_salary')->default(true);
             $table->unsignedInteger('salary_from')->nullable();
             $table->unsignedInteger('salary_to')->nullable();
-            $table->string('job_required');   // Demonstrated compoter skills in MS Office, including Word, Excel and Outlook are a plus.
-            $table->string('job_preferred');   // CAs or CPAs is, preferred, but not required.
+            $table->string('job_required')->nullable();   // Demonstrated compoter skills in MS Office, including Word, Excel and Outlook are a plus.
+            $table->string('job_preferred')->nullable();   // CAs or CPAs is, preferred, but not required.
             $table->unsignedSmallInteger('number_of_potisions');   // 0
             $table->string('description_type', 10)->default('markdown'); // html, markdown, text
             $table->string('description');
