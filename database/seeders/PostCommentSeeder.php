@@ -23,5 +23,13 @@ class PostCommentSeeder extends Seeder
                 'post_id' => $postIds->random(),
             ]);
         });
+
+        // Calulate comment_count of Post model.
+
+        $posts = Post::all()->each(function ($post) {
+            $post->update([
+                'comment_count' => PostComment::where('post_id', $post->id)->count(),
+            ]);
+        });
     }
 }
