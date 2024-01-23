@@ -22,6 +22,8 @@ class DatabaseSeeder extends Seeder
             QnaSeeder::class,
             QnaAnswerSeeder::class,
             QnaAnswerThumbUpdownSeeder::class,
+            PostSeeder::class,
+            PostCommentSeeder::class,
         ]);
     }
 }

@@ -63,6 +63,9 @@
         ],
         "lint": [
             "./vendor/bin/pint"
+        ],
+        "migrate": [
+            "@php artisan migrate:refresh --seed"
         ]
     },
     "extra": {
