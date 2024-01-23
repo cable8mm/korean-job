@@ -11,6 +11,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     protected $casts = [
         'is_blind' => 'boolean',
     ];

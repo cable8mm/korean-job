@@ -1,6 +1,7 @@
 <?php
 
 use App\Enums\PostBranchEnum;
+use App\Enums\TextareaType;
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
@@ -15,10 +16,10 @@ return new class extends Migration
         Schema::create('posts', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('user_id');
-            $table->string('branch', 20)->default(PostBranchEnum::default())->comment('The reason not to use database is for more performances, expecially TPS.');
+            $table->string('branch', 20)->default(PostBranchEnum::kDefault())->comment('The reason not to use database is for more performances, expecially TPS.');
             $table->string('title');
             $table->text('content');
-            $table->string('content_format', 10)->comment('a type of Content column. eg, html, markdown and text. refer to TextareaType enum.');
+            $table->string('content_format', 10)->default(TextareaType::kDefault())->comment('a type of Content column. eg, html, markdown and text. refer to TextareaType enum.');
             $table->unsignedInteger('comment_count')->default(0);
             $table->unsignedBigInteger('hit')->default(0);
             $table->boolean('is_blind')->default(false)->comment('If true, this post is unvisible. Who can set this column are both post owner and admin.');

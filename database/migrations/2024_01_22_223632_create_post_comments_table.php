@@ -18,6 +18,9 @@ return new class extends Migration
             $table->text('content')->comment('No rich editors are available.');
             $table->boolean('is_blind')->default(false)->comment('It can be changed by admins.');
             $table->timestamps();
+
+            $table->foreign('user_id')->references('id')->on('users')->cascadeOnDelete();
+            $table->foreign('post_id')->references('id')->on('posts')->cascadeOnDelete();
         });
     }
 
