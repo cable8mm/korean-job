@@ -9,6 +9,8 @@ class QnaAnswerThumbUpdown extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
     public function user()
     {
         return $this->belongsTo(User::class);
