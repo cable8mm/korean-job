@@ -11,6 +11,8 @@ class Post extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
     protected $guarded = [];
 
     protected $casts = [

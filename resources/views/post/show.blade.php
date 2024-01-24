@@ -23,19 +23,7 @@
                     <x-x.content :content="$post->content" format="text" />
                 </div>
             </div>
-            @foreach($post->postComments as $item)
-            <div class="bg-white overflow-hidden shadow-sm sm:rounded-lg my-2">
-                <div class="px-6 pt-6 text-gray-500 text-sm">
-                    <x-heroicon-o-clock class="inline w-6 h-6 text-gray-500" />
-                    {{ $item->updated_at->diffForHumans() }}
-                    <x-heroicon-o-user-circle class="inline w-6 h-6 ml-6 text-gray-500" />
-                    {{ $item->user->name }}
-                </div>
-                <div class="px-6 pt-3 pb-6 text-gray-900">
-                    {{ $item->content }}
-                </div>
-            </div>
-            @endforeach
+            <livewire:post.show.post-comment-section :post="$post" />
         </div>
     </div>
 </x-app-layout>

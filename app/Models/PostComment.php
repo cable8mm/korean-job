@@ -10,6 +10,10 @@ class PostComment extends Model
 {
     use HasFactory;
 
+    protected $with = ['user'];
+
+    protected $guarded = [];
+
     protected $casts = [
         'is_blind' => 'boolean',
     ];
