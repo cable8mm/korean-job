@@ -15,6 +15,12 @@
                     <x-nav-link :href="route('job')" :active="request()->routeIs('job')">
                         {{ __('Job') }}
                     </x-nav-link>
+                    <x-nav-link :href="route('qna')" :active="request()->routeIs('qna')">
+                        {{ __('Qna') }}
+                    </x-nav-link>
+                    <x-nav-link :href="route('community')" :active="request()->routeIs('community')">
+                        {{ __('Community') }}
+                    </x-nav-link>
                     <x-nav-link :href="route('notice')" :active="request()->routeIs('notice')">
                         {{ __('Notice') }}
                     </x-nav-link>

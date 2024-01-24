@@ -3,6 +3,7 @@
 namespace Database\Seeders;
 
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
+
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -18,6 +19,11 @@ class DatabaseSeeder extends Seeder
             CompanySeeder::class,
             JobSeeder::class,
             NoticeSeeder::class,
+            QnaSeeder::class,
+            QnaAnswerSeeder::class,
+            QnaAnswerThumbUpdownSeeder::class,
+            PostSeeder::class,
+            PostCommentSeeder::class,
         ]);
     }
 }
