@@ -90,6 +90,20 @@ Production:
 npm run prod
 ```
 
-## Deploy
+## CI/CD
+
+For testing third party integration, you should make github repository secrets as belows.
+
+*Laravel Nova* is required,
+
+- NOVA_PASSWORD
+- NOVA_USERNAME
+
+*Kakao Login* is optional for social logins,
+
+- KAKAO_CLIENT_ID
+- KAKAO_CLIENT_SECRET
+- KAKAO_REDIRECT_URI
+
 
 The stage server is automatically deployed in Merge, and the live server is deployed manually at [Envoy](https://envoyer.io/). However, you must first create a GitHub Release before live deployment.
