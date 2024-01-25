@@ -1,4 +1,13 @@
 <x-guest-layout>
+    <div>
+        <x-input-label for="email" :value="__('Social Login')" />
+        <a href="{{ route('social.redirect', 'kakao') }}" type="button" class="w-full text-black mt-2 bg-[#FEE500]/80 hover:bg-[#FEE500]/50 focus:ring-4 focus:ring-[#3b5998]/50 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:focus:ring-[#3b5998]/55 mr-2 mb-2">
+            {{ __('Login with Kakao') }}
+        </a>
+    </div>
+
+    <hr class="h-px my-4 bg-gray-200 border-0 dark:bg-gray-700">
+
     <!-- Session Status -->
     <x-auth-session-status class="mb-4" :status="session('status')" />
 

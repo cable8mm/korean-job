@@ -309,5 +309,7 @@
     "You are logged in!": "로그인되었습니다!",
     "You are receiving this email because we received a password reset request for your account.": "귀하의 계정에 대한 비밀번호 재설정이 요청되어 이 메일이 발송되었습니다.",
     "You're logged in!": "로그인되었습니다!",
-    "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다."
+    "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다.",
+    "Social Login": "소셜 로그인",
+    "Login with Kakao": "카카오 로그인"
 }

@@ -45,7 +45,7 @@ class JobFactory extends Factory
             'number_of_potisions' => fake()->numberBetween(0, 20),
             'description_type' => fake()->randomElement(TextareaType::kCases()),
             'description' => fake()->text(),
-            'contact' => fake()->tollFreePhoneNumber().' to '.fake()->name(),
+            'contact' => fake()->phoneNumber().' to '.fake()->name(),
             'opened_at' => now(),
             'closed_at' => now()->addDays(fake()->numberBetween(0, 200)),
         ];
