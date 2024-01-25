@@ -9,7 +9,7 @@ trait EnumCasesTrait
         $output = [];
 
         foreach (self::cases() as $value) {
-            $output[$value->name] = $value->value;
+            $output[$value->name] = $value->value ?? $value->name;
         }
 
         return $output;
@@ -28,7 +28,7 @@ trait EnumCasesTrait
 
     public static function default(): string
     {
-        return self::cases()[0]->value;
+        return self::cases()[0]->value ?? self::cases()[0]->name;
     }
 
     public static function kDefault(): string
