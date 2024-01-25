@@ -12,8 +12,15 @@
         "laravel/framework": "^10.10",
         "laravel/nova": "~4.0",
         "laravel/sanctum": "^3.3",
+        "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.8",
-        "livewire/livewire": "^3.3"
+        "livewire/livewire": "^3.3",
+        "socialiteproviders/facebook": "^4.1",
+        "socialiteproviders/github": "^4.1",
+        "socialiteproviders/google": "^4.1",
+        "socialiteproviders/instagram": "^5.0",
+        "socialiteproviders/kakao": "^4.2",
+        "socialiteproviders/naver": "^4.1"
     },
     "require-dev": {
         "barryvdh/laravel-debugbar": "^3.9",
@@ -65,7 +72,7 @@
             "./vendor/bin/pint"
         ],
         "migrate": [
-            "@php artisan migrate:refresh --seed"
+            "@php artisan migrate:fresh --seed"
         ]
     },
     "extra": {

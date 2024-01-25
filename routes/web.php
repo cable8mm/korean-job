@@ -7,6 +7,7 @@ use App\Http\Controllers\NoticeController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QnaController;
+use App\Http\Controllers\Social\AuthenticatedSocialController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -49,6 +50,11 @@ Route::get('/post/{post}', [PostController::class, 'show'])->name('post.show');
 Route::middleware('auth')->get('/post/{post}/edit', [PostController::class, 'edit'])->name('post.edit');
 Route::middleware('auth')->patch('/post/{post}', [PostController::class, 'update'])->name('post.update');
 Route::middleware('auth')->delete('/post/{post}', [PostController::class, 'destroy'])->name('post.destroy');
+
+Route::middleware('guest')->group(function () {
+    Route::get('/social/{provider}/redirect', [AuthenticatedSocialController::class, 'redirectProvider'])->name('social.redirect');
+    Route::get('/social/{provider}/callback', [AuthenticatedSocialController::class, 'callbackProvider'])->name('social.callback');
+});
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
