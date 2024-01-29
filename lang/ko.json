@@ -311,5 +311,7 @@
     "You're logged in!": "로그인되었습니다!",
     "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다.",
     "Social Login": "소셜 로그인",
-    "Login with Kakao": "카카오 로그인"
+    "Login with Kakao": "카카오 로그인",
+    "Apply": "제출",
+    "Registration": "회원가입"
 }

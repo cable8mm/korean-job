@@ -66,6 +66,9 @@
                         <x-dropdown-link :href="route('login')">
                             {{ __('Login') }}
                         </x-dropdown-link>
+                        <x-dropdown-link :href="route('register')">
+                            {{ __('Register') }}
+                        </x-dropdown-link>
                         @endguest
                     </x-slot>
                 </x-dropdown>
