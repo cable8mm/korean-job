@@ -29,7 +29,11 @@
 
             <!-- Page Content -->
             <main>
-                {{ $slot }}
+                <div class="py-4 ">
+                    <div class="max-w-7xl mx-auto sm:px-6 lg:px-8 lg:py-8 py-8 bg-white">
+                        {{ $slot }}
+                    </div>
+                </div>
             </main>
 
             @include('layouts.footer')
