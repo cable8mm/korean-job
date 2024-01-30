@@ -15,18 +15,6 @@ trait EnumCasesTrait
         return $output;
     }
 
-    public static function vvCases(): array
-    {
-        $output = [];
-
-        foreach (self::cases() as $value) {
-            $vv = $value->value ?? $value->name;
-            $output[$vv] = $vv;
-        }
-
-        return $output;
-    }
-
     public static function kCases(): array
     {
         $output = [];

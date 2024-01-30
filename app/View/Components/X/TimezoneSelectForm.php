@@ -20,7 +20,7 @@ class TimezoneSelectForm extends Component
      */
     public function __construct()
     {
-        $this->options = TimezoneEnum::vvCases();
+        $this->options = TimezoneEnum::tzCases();
     }
 
     /**
