@@ -1,13 +1,19 @@
 <x-app-layout>
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <h2 class="text-lg font-bold">{{ __('Job') }}</h2>
-            <div class="relative overflow-x-auto">
-                @include('job.partials.job-index')
-            </div>
-            <h2 class="text-lg font-bold mt-4">{{ __('Notice') }}</h2>
-            <div class="relative overflow-x-auto">
-                @include('notice.partials.notice-index')
+            <div class="grid grid-cols-1 gap-2 md:grid-cols-2 xl:grid-cols-2 2xl:grid-cols-2 shadow-sm sm:rounded-lg">
+                <div>
+                    @include('job.partials.job-index')
+                </div>
+                <div>
+                    @include('qna.partials.qna-index')
+                </div>
+                <div>
+                    @include('post.partials.post-index')
+                </div>
+                <div>
+                    @include('notice.partials.notice-index')
+                </div>
             </div>
         </div>
     </div>
