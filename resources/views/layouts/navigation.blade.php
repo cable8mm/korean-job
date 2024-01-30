@@ -29,6 +29,15 @@
 
             <!-- Settings Dropdown -->
             <div class="hidden sm:flex sm:items-center sm:ms-6">
+                @if(LaravelLocalization::setLocale() == 'en')
+                <x-nav-link :href="LaravelLocalization::getLocalizedURL('ko')" class="mr-4">
+                    {{ '한글' }}
+                </x-nav-link>
+                @else
+                <x-nav-link :href="LaravelLocalization::getLocalizedURL('en')" class="mr-4">
+                    {{ 'English' }}
+                </x-nav-link>
+                @endif
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
