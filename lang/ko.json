@@ -70,6 +70,7 @@
     "Created At": "작성일",
     "Current Password": "현재 비밀번호",
     "Dashboard": "대시보드",
+    "Deadline": "마감일",
     "Decision After Interview": "면접 후 결정",
     "Delete": "삭제",
     "Delete Account": "계정 삭제",
@@ -209,6 +210,7 @@
     "Preview": "프리뷰",
     "Previous": "이전",
     "Price": "가격",
+    "Privacy Policy": "정보 보호",
     "Processing": "처리",
     "Profile": "프로필",
     "Profile Information": "프로필 정보",
@@ -270,6 +272,7 @@
     "Temporary": "임시직",
     "temporary": "임시직",
     "Temporary Redirect": "임시 리디렉션",
+    "Terms & Conditions": "사용 조건",
     "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.": "가입해 주셔서 감사합니다! 시작하시기 전에 방금 이메일로 보낸 링크를 클릭하여 이메일 주소를 확인해 주시겠습니까? 이메일을 받지 못한 경우 새 이메일을 보내 드리겠습니다.",
     "The given data was invalid.": "제공된 데이터가 유효하지 않습니다.",
     "The response is not a streamed response.": "응답이 스트리밍 응답이 아닙니다.",
@@ -317,8 +320,5 @@
     "You are logged in!": "로그인되었습니다!",
     "You are receiving this email because we received a password reset request for your account.": "귀하의 계정에 대한 비밀번호 재설정이 요청되어 이 메일이 발송되었습니다.",
     "You're logged in!": "로그인되었습니다!",
-    "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다.",
-    "Privacy Policy": "정보 보호",
-    "Terms & Conditions": "사용 조건",
-    "Deadline": "마감일"
+    "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다."
 }

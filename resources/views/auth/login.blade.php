@@ -1,3 +1,5 @@
+@section('title', 'Login')
+@section('meta_description', 'You can login in this page')
 <x-guest-layout>
     <x-input-label for="email" :value="__('Social Login')" />
     <div class="w-full grid grid-cols-2 gap-2 mt-2">

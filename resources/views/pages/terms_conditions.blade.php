@@ -1,3 +1,5 @@
+@section('title', 'Terms & Conditions')
+@section('meta_description', 'This is a terms and conditions of Korean Jobs')
 <x-page-layout>
     <h2 class="pb-4 font-bold text-lg">{{ __('Terms & Conditions') }}</h2>
     <pre>1 The painting was judged a fake.

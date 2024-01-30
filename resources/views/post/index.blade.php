@@ -1,3 +1,5 @@
+@section('title', 'Community for korean jobs')
+@section('meta_description', 'Let\'s play us for find out korean job')
 <x-app-layout>
     <x-slot name="header">
         <h2 class="font-semibold text-xl text-gray-800 leading-tight py-2.5">
