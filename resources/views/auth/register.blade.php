@@ -1,3 +1,5 @@
+@section('title', 'Registration')
+@section('meta_description', 'You can make a registration in this page')
 <x-guest-layout>
     <form method="POST" action="{{ route('register') }}">
         @csrf

@@ -1,3 +1,5 @@
+@section('title', $job->title)
+@section('meta_description', $job->description)
 <x-app-layout>
     <x-slot name="header">
         <div>{{ $job->company->name }}</div>

@@ -1,3 +1,5 @@
+@section('title', 'Privacy Policy')
+@section('meta_description', 'This is a privacy policy of Korean Jobs')
 <x-page-layout>
 <h2 class="pb-4 font-bold text-lg">{{ __('Privacy Policy') }}</h2>
 <pre>1 The painting was judged a fake.

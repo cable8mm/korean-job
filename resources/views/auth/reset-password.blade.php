@@ -1,3 +1,5 @@
+@section('title', 'Reset password')
+@section('meta_description', 'You can reset a password in this page')
 <x-guest-layout>
     <form method="POST" action="{{ route('password.store') }}">
         @csrf
