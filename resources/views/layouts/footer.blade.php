@@ -40,10 +40,10 @@
                   <h2 class="mb-6 text-sm font-semibold text-gray-900 uppercase dark:text-white">{{ __('Legal') }}</h2>
                   <ul class="text-gray-500 dark:text-gray-400 font-medium">
                       <li class="mb-4">
-                          <a href="{{ url('privacy_policy') }}" class="hover:underline">{{ __('Privacy Policy') }}</a>
+                          <a href="{{ route('pages', 'privacy-policy') }}" class="hover:underline">{{ __('Privacy Policy') }}</a>
                       </li>
                       <li>
-                          <a href="{{ url('terms_conditions') }}" class="hover:underline">{{ __('Terms & Conditions') }}</a>
+                          <a href="{{ route('pages', 'terms-conditions') }}" class="hover:underline">{{ __('Terms & Conditions') }}</a>
                       </li>
                   </ul>
               </div>
