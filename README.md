@@ -58,6 +58,16 @@ php artisan nova:user
 # make Name, Email Address, Password and create user
 ```
 
+Mail:
+
+```sh
+brew install mailpit
+
+brew services start mailpit
+```
+
+Visit to http://localhost:8025
+
 ## Maintenance
 
 ### Add languages
