@@ -33,11 +33,27 @@
                 <x-nav-link :href="LaravelLocalization::getLocalizedURL('ko')" class="mr-4">
                     {{ '한글' }}
                 </x-nav-link>
+                @elseif(LaravelLocalization::setLocale() == 'ko')
+                <x-nav-link :href="LaravelLocalization::getLocalizedURL('en')" class="mr-4">
+                    {{ 'English' }}
+                </x-nav-link>
                 @else
+                <x-nav-link :href="LaravelLocalization::getLocalizedURL('ko')" class="mr-4">
+                    {{ '한글' }}
+                </x-nav-link>
                 <x-nav-link :href="LaravelLocalization::getLocalizedURL('en')" class="mr-4">
                     {{ 'English' }}
                 </x-nav-link>
                 @endif
+                @guest
+                <x-nav-link :href="route('login')" class="mr-4">
+                    {{ __('Login') }}
+                </x-nav-link >
+                <x-nav-link  :href="route('register')" class="mr-4">
+                    {{ __('Register') }}
+                </x-nav-link >
+                @endguest
+                @auth
                 <x-dropdown align="right" width="48">
                     <x-slot name="trigger">
                         <button
@@ -56,7 +72,6 @@
                     </x-slot>
 
                     <x-slot name="content">
-                        @auth
                         <x-dropdown-link :href="route('profile.edit')">
                             {{ __('Profile') }}
                         </x-dropdown-link>
@@ -70,17 +85,9 @@
                                 {{ __('Log Out') }}
                             </x-dropdown-link>
                         </form>
-                        @endauth
-                        @guest
-                        <x-dropdown-link :href="route('login')">
-                            {{ __('Login') }}
-                        </x-dropdown-link>
-                        <x-dropdown-link :href="route('register')">
-                            {{ __('Register') }}
-                        </x-dropdown-link>
-                        @endguest
                     </x-slot>
                 </x-dropdown>
+                @endauth
             </div>
 
             <!-- Hamburger -->
@@ -147,6 +154,27 @@
                     {{ __('Login') }}
                 </x-responsive-nav-link>
                 @endguest
+            </div>
+        </div>
+
+        <div class="pt-4 pb-1 border-t border-gray-200">
+            <div class="mt-3 space-y-1">
+                @if(LaravelLocalization::setLocale() == 'en')
+                <x-responsive-nav-link :href="LaravelLocalization::getLocalizedURL('ko')" class="mr-4">
+                    {{ '한글' }}
+                </x-responsive-nav-link>
+                @elseif(LaravelLocalization::setLocale() == 'ko')
+                <x-responsive-nav-link :href="LaravelLocalization::getLocalizedURL('en')" class="mr-4">
+                    {{ 'English' }}
+                </x-responsive-nav-link>
+                @else
+                <x-responsive-nav-link :href="LaravelLocalization::getLocalizedURL('ko')" class="mr-4">
+                    {{ '한글' }}
+                </x-responsive-nav-link>
+                <x-responsive-nav-link :href="LaravelLocalization::getLocalizedURL('en')" class="mr-4">
+                    {{ 'English' }}
+                </x-responsive-nav-link>
+                @endif
             </div>
         </div>
     </div>

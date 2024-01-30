@@ -4,6 +4,7 @@ use App\Http\Controllers\CommunityController;
 use App\Http\Controllers\HomeController;
 use App\Http\Controllers\JobController;
 use App\Http\Controllers\NoticeController;
+use App\Http\Controllers\PagesController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\QnaController;
@@ -59,6 +60,8 @@ Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::middleware('auth')->get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
     Route::middleware('auth')->patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
     Route::middleware('auth')->delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+
+    Route::get('/pages/{slug}', PagesController::class)->name('pages');
 });
 
 require __DIR__.'/auth.php';
