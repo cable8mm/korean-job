@@ -1,5 +1,7 @@
 <div class="p-5 mb-4 border border-gray-100 rounded-lg bg-gray-50 dark:bg-gray-800 dark:border-gray-700">
-    <a href="{{ route('job') }}"><h2 class="text-lg font-semibold text-gray-900 dark:text-white">{{ __('Job') }}</h2></a>
+    @if(request()->routeIs('home'))
+    <x-x.widget-title href="{{ route('job') }}">{{ __('Job') }}</x-x.widget-title>
+    @endif
     <ol class="mt-3 divide-y divider-gray-200 dark:divide-gray-700">
         @foreach($jobs as $item)
         <li>
