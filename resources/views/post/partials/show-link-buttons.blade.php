@@ -1,29 +1,24 @@
-<div class="flex -mt-2">
-    <div class="flex-1 text-left mt-2">
-        <a class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            href="{{ route('post') }}">{{ __('List') }}</a>
-        @isset($post)
-        @can('update', $post)
-        <a class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            href="{{ route('post.edit', $post->id) }}">{{ __('Edit') }}</a>
-        @endcan
-        @endisset
-    </div>
-    <div class="flex-1 text-right">
-        @auth
-        <a class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            href="{{ route('post.create') }}">{{ __('Create') }}</a>
-        @endauth
-        @isset($post)
-        @can('update', $post)
-        <a class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            href="{{ route('post.edit', $post->id) }}">{{ __('Edit') }}</a>
-        @endcan
-        @can('delete', $post)
-        <x-x.delete-button-form
-            class=" text-white bg-gradient-to-r from-blue-500 via-blue-600 to-blue-700 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-blue-300 dark:focus:ring-blue-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2"
-            action="{{ route('post.destroy', $post->id) }}" name="{{ __('Delete') }}" />
-        @endcan
-        @endisset
+<div class="pt-2 pb-4 border-b border-slate-900/10 lg:border-0 dark:border-slate-300/10 mx-4 lg:mx-0">
+    <div class="relative flex items-center">
+        <div class="text-left">
+            <x-x.primary-link href="{{ route('post') }}">{{ __('List') }}</x-x.primary-link>
+        </div>
+        <div class="relative hidden lg:flex items-center ml-auto">
+            @auth
+            @if(! request()->routeIs('post.create'))
+            <x-x.primary-link href="{{ route('post.create') }}">{{ __('Create') }}</x-x.primary-link>
+            @endif
+            @endauth
+            @isset($post)
+            @if(! request()->routeIs('post.edit'))
+            @can('update', $post)
+            <x-x.primary-link href="{{ route('post.edit', $post->id) }}">{{ __('Edit') }}</x-x.primary-link>
+            @endcan
+            @endif
+            @can('delete', $post)
+            <x-x.delete-button-form action="{{ route('post.destroy', $post->id) }}" name="{{ __('Delete') }}" />
+            @endcan
+            @endisset
+        </div>
     </div>
 </div>
