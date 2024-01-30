@@ -64,6 +64,7 @@
     "Content": "본문",
     "Continue": "계속하다",
     "Contract": "계약직",
+    "contract": "계약직",
     "Create": "생성",
     "Created": "만들어진",
     "Created At": "작성일",
@@ -107,6 +108,7 @@
     "Forgot your password? No problem. Just let us know your email address and we will email you a password reset link that will allow you to choose a new one.": "비밀번호를 잊으셨습니까? 이메일 주소를 입력하시면 새 비밀번호를 설정 할 수 있는 링크를 이메일로 보내드립니다.",
     "Found": "설립하다",
     "Full-time": "풀타임",
+    "full_time": "풀타임",
     "Gateway Timeout": "게이트웨이 시간 초과",
     "Go Home": "홈으로 이동",
     "Go to page :page": ":Page 페이지로 이동",
@@ -192,6 +194,7 @@
     "Page Expired": "만료된 페이지",
     "Pagination Navigation": "페이지네이션 내비게이션",
     "Part-time": "파트타임",
+    "part_time": "파트타임",
     "Partial Content": "부분 콘텐츠",
     "Password": "비밀번호",
     "Payload Too Large": "페이로드가 너무 큼",
@@ -265,6 +268,7 @@
     "Tag": "꼬리표",
     "Tags": "태그",
     "Temporary": "임시직",
+    "temporary": "임시직",
     "Temporary Redirect": "임시 리디렉션",
     "Thanks for signing up! Before getting started, could you verify your email address by clicking on the link we just emailed to you? If you didn't receive the email, we will gladly send you another.": "가입해 주셔서 감사합니다! 시작하시기 전에 방금 이메일로 보낸 링크를 클릭하여 이메일 주소를 확인해 주시겠습니까? 이메일을 받지 못한 경우 새 이메일을 보내 드리겠습니다.",
     "The given data was invalid.": "제공된 데이터가 유효하지 않습니다.",
@@ -315,5 +319,6 @@
     "You're logged in!": "로그인되었습니다!",
     "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다.",
     "Privacy Policy": "정보 보호",
-    "Terms & Conditions": "사용 조건"
+    "Terms & Conditions": "사용 조건",
+    "Deadline": "마감일"
 }

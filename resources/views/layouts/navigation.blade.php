@@ -96,6 +96,18 @@
             <x-responsive-nav-link :href="route('home')" :active="request()->routeIs('home')">
                 {{ __('Home') }}
             </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('job')" :active="request()->routeIs('job')">
+                {{ __('Job') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('qna')" :active="request()->routeIs('qna')">
+                {{ __('Qna') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('post')" :active="request()->routeIs('post')">
+                {{ __('Community') }}
+            </x-responsive-nav-link>
+            <x-responsive-nav-link :href="route('notice')" :active="request()->routeIs('notice')">
+                {{ __('Notice') }}
+            </x-responsive-nav-link>
         </div>
 
         <!-- Responsive Settings Options -->
