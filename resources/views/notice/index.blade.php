@@ -6,6 +6,7 @@
     </x-slot>
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            @include('notice.partials.show-link-buttons')
             <div class="relative overflow-x-auto">
                 @include('notice.partials.notice-index')
             </div>

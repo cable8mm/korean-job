@@ -87,7 +87,11 @@
                 </div>
             </div>
             <div class="w-full p-6 my-4 bg-white shadow-sm sm:rounded-lg">
-                {{ $job->description }}
+                <x-x.content>{{ $job->description }}</x-x.content>
+            </div>
+            <div class="text-center">
+                <x-x.submit-link href="/">{{ __('Apply') }}</x-submit-link>
+                <x-x.submit-link href="/">{{ __('Contact') }}</x-submit-link>
             </div>
         </div>
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">

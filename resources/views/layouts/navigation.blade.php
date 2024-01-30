@@ -18,7 +18,7 @@
                     <x-nav-link :href="route('qna')" :active="request()->routeIs('qna')">
                         {{ __('Qna') }}
                     </x-nav-link>
-                    <x-nav-link :href="route('community')" :active="request()->routeIs('community')">
+                    <x-nav-link :href="route('post')" :active="request()->routeIs('post')">
                         {{ __('Community') }}
                     </x-nav-link>
                     <x-nav-link :href="route('notice')" :active="request()->routeIs('notice')">
@@ -65,6 +65,9 @@
                         @guest
                         <x-dropdown-link :href="route('login')">
                             {{ __('Login') }}
+                        </x-dropdown-link>
+                        <x-dropdown-link :href="route('register')">
+                            {{ __('Register') }}
                         </x-dropdown-link>
                         @endguest
                     </x-slot>

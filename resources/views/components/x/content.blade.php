@@ -1,18 +1,18 @@
-@props(['content', 'format'])
+@props(['format' => App\Enums\TextareaType::text->name])
 
 @switch($format)
 @case(App\Enums\TextareaType::text->name)
-{!! nl2br($content) !!}
+{!! nl2br($slot) !!}
 @break
 
 @case(App\Enums\TextareaType::markdown->name)
-{!! Str::of($content)->markdown() !!}
+{!! Str::of($slot)->markdown() !!}
 @break
 
 @case(App\Enums\TextareaType::html->name)
-{!! $content !!}
+{!! $slot !!}
 @break
 
 @default
-{{ nl2br($content) }}
+{{ nl2br($slot) }}
 @endswitch
