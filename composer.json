@@ -16,6 +16,7 @@
         "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.8",
         "livewire/livewire": "^3.3",
+        "mcamara/laravel-localization": "^1.8",
         "socialiteproviders/facebook": "^4.1",
         "socialiteproviders/github": "^4.1",
         "socialiteproviders/google": "^4.1",
