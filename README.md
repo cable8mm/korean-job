@@ -7,6 +7,9 @@
 
 The website "korean-job.co.nz" is intended for both Korean employees and employers.
 
+![Homepage](/docs/assets/images/screenshot_1.png)
+![Backoffice](/docs/assets/images/screenshot_2.png)
+
 ## Installation
 
 [Install valet](https://laravel.com/docs/10.x/valet#installation):
