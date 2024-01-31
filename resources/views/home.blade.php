@@ -3,7 +3,7 @@
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
             <div class="grid grid-cols-3 gap-4 mb-4">
                 <div class="col-span-2">
-                    <x-widgets.job-carousel />
+                    <x-widgets.banner-carousel />
                 </div>
                 <div>
                     <x-widgets.popular-jobs />
