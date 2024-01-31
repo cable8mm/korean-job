@@ -2,7 +2,9 @@
 
 namespace App\Nova;
 
+use App\Enums\BannerLinkTypeEnum;
 use App\Enums\BannerThemeEnum;
+use App\Traits\NovaGeneralAuthorized;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -16,6 +18,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Banner extends Resource
 {
+    use NovaGeneralAuthorized;
+
     /**
      * The model the resource corresponds to.
      *
@@ -37,6 +41,9 @@ class Banner extends Resource
      */
     public static $search = [
         'id',
+        'tags',
+        'title',
+        'color_theme',
     ];
 
     /**
@@ -49,7 +56,7 @@ class Banner extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('Admin')->required(),
+            BelongsTo::make('Admin')->required()->hideWhenCreating()->hideWhenUpdating(),
 
             Text::make('Tags')->nullable()->help('You can input multi tags with comma.'),
 
@@ -57,21 +64,19 @@ class Banner extends Resource
 
             Image::make('Image')->nullable()->disk('public')->path('uploads/banner'),
 
-            Text::make('Content')->hideFromIndex(),
+            Text::make('Content')->hideFromIndex()->rules('max:190')->help('The Content must not be greater than 190 characters.'),
 
-            Select::make('Color Theme')->required()->options(BannerThemeEnum::kvCases()),
+            Select::make('Color Theme')->required()->options(BannerThemeEnum::kvCases())->filterable(),
 
             URL::make('Link Url')->nullable(),
 
-            Select::make('Link Type')->nullable()->options([
-                'normal' => 'normal',
-            ]),
+            Select::make('Link Type')->nullable()->options(BannerLinkTypeEnum::kvCases())->filterable(),
 
             DateTime::make('Opened At')->required()->default(now()),
 
             DateTime::make('Closed At')->required()->default(now()->addMonth()),
 
-            Boolean::make('Is Active')->default(true),
+            Boolean::make('Is Active')->default(true)->filterable(),
         ];
     }
 
@@ -113,5 +118,13 @@ class Banner extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
+    }
+
+    public static function newModel()
+    {
+        $model = parent::newModel();
+        $model->user_id = auth()->id();
+
+        return $model;
     }
 }

@@ -2,21 +2,16 @@
 
 namespace App\Nova;
 
-use App\Enums\PostBranchEnum;
 use App\Traits\NovaGeneralAuthorized;
 use App\Traits\NovaOutOfControlAuthorized;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
 use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Select;
-use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Post extends Resource
+class QnaAnswerThumbUpdown extends Resource
 {
     use NovaGeneralAuthorized;
     use NovaOutOfControlAuthorized;
@@ -24,16 +19,16 @@ class Post extends Resource
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Post>
+     * @var class-string<\App\Models\QnaAnswerThumbUpdown>
      */
-    public static $model = \App\Models\Post::class;
+    public static $model = \App\Models\QnaAnswerThumbUpdown::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'id';
 
     /**
      * The columns that should be searched.
@@ -42,9 +37,9 @@ class Post extends Resource
      */
     public static $search = [
         'id',
-        'branch',
-        'title',
     ];
+
+    public static $displayInNavigation = false;
 
     /**
      * Get the fields displayed by the resource.
@@ -56,23 +51,15 @@ class Post extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('User'),
+            BelongsTo::make('User')->rules('required')->filterable(),
 
-            Text::make('Branch')->rules('required')->default('wagle')->filterable(),
+            BelongsTo::make('Qna Answer')->rules('required')->filterable(),
 
-            Text::make('Title')->rules('required'),
+            Number::make('Up And Down')->rules('required')->default(0),
 
-            Trix::make('Content')->rules('required')->alwaysShow(),
+            DateTime::make('Created At')->exceptOnForms(),
 
-            Select::make('Content Format')->rules('required')->options(PostBranchEnum::kvCases())->default(PostBranchEnum::kDefault())->filterable(),
-
-            Number::make('Comment Count')->default(0)->exceptOnForms(),
-
-            Number::make('Hit')->default(0)->exceptOnForms(),
-
-            Boolean::make('Is Blind')->filterable(),
-
-            HasMany::make('Post Comments'),
+            DateTime::make('Updated At')->exceptOnForms(),
         ];
     }
 

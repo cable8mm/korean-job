@@ -29,4 +29,9 @@ enum TimezoneEnum: string
     {
         return Str::of($string)->replace('_', '/');
     }
+
+    public static function kDefault(): string
+    {
+        return self::timezone(self::cases()[0]->name);
+    }
 }

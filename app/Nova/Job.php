@@ -4,6 +4,7 @@ namespace App\Nova;
 
 use App\Enums\JobType;
 use App\Enums\TextareaType;
+use App\Traits\NovaGeneralAuthorized;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -18,6 +19,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Job extends Resource
 {
+    use NovaGeneralAuthorized;
+
     /**
      * The model the resource corresponds to.
      *
@@ -30,7 +33,7 @@ class Job extends Resource
      *
      * @var string
      */
-    public static $title = 'id';
+    public static $title = 'title';
 
     /**
      * The columns that should be searched.
@@ -39,6 +42,9 @@ class Job extends Resource
      */
     public static $search = [
         'id',
+        'title',
+        'job_position',
+        'working_area',
     ];
 
     /**
@@ -51,49 +57,49 @@ class Job extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('User'),
+            BelongsTo::make('User')->filterable(),
 
             BelongsTo::make('Company'),
 
             Text::make('Title')->rules('required'),
 
-            Select::make('Job Type')->options(JobType::kvCases())->default(JobType::full_time->name),
+            Select::make('Job Type')->rules('required')->options(JobType::kvCases())->default(JobType::kDefault())->filterable(),
 
             Text::make('Job Position')->rules('required'),
 
-            Text::make('Job Requirement Certification')->rules('required'),
+            Text::make('Job Requirement Certification')->rules('required')->hideFromIndex(),
 
-            Number::make('Job Experience Period')->rules('required')->default(0)->help(__('If 0 is set, "entry-level" showed.')),
+            Number::make('Job Experience Period')->rules('required')->default(0)->hideFromIndex()->help(__('If 0 is set, "entry-level" showed.')),
 
-            Text::make('Work Hours')->rules('required')->help(__('8am to 5pm, Monday to Friday')),
+            Text::make('Work Hours')->rules('required')->hideFromIndex()->help(__('8am to 5pm, Monday to Friday')),
 
-            Text::make('Working Area')->rules('required')->help(__('Auckland CBD, New Zealand')),
+            Text::make('Working Area')->rules('required')->hideFromIndex()->help(__('Auckland CBD, New Zealand')),
 
-            Text::make('Wages And Benefits')->rules('required')->help(__('We offer a competitive salary and a comprehensive benefits package.')),
+            Text::make('Wages And Benefits')->rules('required')->hideFromIndex()->help(__('We offer a competitive salary and a comprehensive benefits package.')),
 
-            Text::make('Application Process')->rules('required')->help(__('Please send a resume and completed employment application to the HR manager at abc@abc.com.')),
+            Text::make('Application Process')->rules('required')->hideFromIndex()->help(__('Please send a resume and completed employment application to the HR manager at abc@abc.com.')),
 
-            Boolean::make('Has Salary'),
+            Boolean::make('Has Salary')->filterable(),
 
             Currency::make('Salary From')->nullable(),
 
             Currency::make('Salary To')->nullable(),
 
-            Text::make('Job Required')->rules('required')->help(__('Demonstrated compoter skills in MS Office, including Word, Excel and Outlook are a plus.')),
+            Text::make('Job Required')->rules('required')->hideFromIndex()->help(__('Demonstrated compoter skills in MS Office, including Word, Excel and Outlook are a plus.')),
 
-            Text::make('Job Preferred')->nullable()->help(__('CAs or CPAs is, preferred, but not required.')),
+            Text::make('Job Preferred')->nullable()->hideFromIndex()->help(__('CAs or CPAs is, preferred, but not required.')),
 
-            Number::make('Number Of Potisions')->rules(['required', 'numeric'])->default(0),
+            Number::make('Number Of Potisions')->rules(['required', 'numeric'])->default(1)->hideFromIndex(),
 
-            Select::make('Description Type')->options(TextareaType::kvCases())->default(TextareaType::markdown),
+            Select::make('Description Type')->options(TextareaType::kvCases())->default(TextareaType::kDefault())->hideFromIndex()->filterable(),
 
-            Trix::make('Description'),
+            Trix::make('Description')->alwaysShow()->withFiles('public/uploads/job'),
 
-            Text::make('Contact')->nullable()->help(__('You\d better let candidate know to connect as a phone or a email')),
+            Text::make('Contact')->nullable()->hideFromIndex()->help(__('You\d better let candidate know to connect as a phone or a email')),
 
-            DateTime::make('Opened At'),
+            DateTime::make('Opened At')->default(now()),
 
-            DateTime::make('Closed At'),
+            DateTime::make('Closed At')->default(now()->addMonth()),
         ];
     }
 
