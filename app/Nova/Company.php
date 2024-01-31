@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Traits\NovaGeneralAuthorized;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\ID;
@@ -11,6 +12,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Company extends Resource
 {
+    use NovaGeneralAuthorized;
+
     /**
      * The model the resource corresponds to.
      *
@@ -32,6 +35,7 @@ class Company extends Resource
      */
     public static $search = [
         'id',
+        'name',
     ];
 
     /**
@@ -44,11 +48,11 @@ class Company extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('User'),
+            BelongsTo::make('User')->searchable()->filterable(),
 
             Text::make('Name')->rules('required'),
 
-            Image::make('Logo Url')->disableDownload(),
+            Image::make('Logo Url')->disk('public')->path('uploads/company'),
         ];
     }
 

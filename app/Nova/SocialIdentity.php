@@ -2,21 +2,16 @@
 
 namespace App\Nova;
 
-use App\Enums\PostBranchEnum;
 use App\Traits\NovaGeneralAuthorized;
 use App\Traits\NovaOutOfControlAuthorized;
 use Illuminate\Http\Request;
-use Laravel\Nova\Fields\BelongsTo;
-use Laravel\Nova\Fields\Boolean;
-use Laravel\Nova\Fields\HasMany;
+use Laravel\Nova\Fields\DateTime;
 use Laravel\Nova\Fields\ID;
-use Laravel\Nova\Fields\Number;
-use Laravel\Nova\Fields\Select;
+use Laravel\Nova\Fields\KeyValue;
 use Laravel\Nova\Fields\Text;
-use Laravel\Nova\Fields\Trix;
 use Laravel\Nova\Http\Requests\NovaRequest;
 
-class Post extends Resource
+class SocialIdentity extends Resource
 {
     use NovaGeneralAuthorized;
     use NovaOutOfControlAuthorized;
@@ -24,16 +19,16 @@ class Post extends Resource
     /**
      * The model the resource corresponds to.
      *
-     * @var class-string<\App\Models\Post>
+     * @var class-string<\App\Models\SocialIdentity>
      */
-    public static $model = \App\Models\Post::class;
+    public static $model = \App\Models\SocialIdentity::class;
 
     /**
      * The single value that should be used to represent the resource when being displayed.
      *
      * @var string
      */
-    public static $title = 'title';
+    public static $title = 'token';
 
     /**
      * The columns that should be searched.
@@ -42,8 +37,6 @@ class Post extends Resource
      */
     public static $search = [
         'id',
-        'branch',
-        'title',
     ];
 
     /**
@@ -56,23 +49,23 @@ class Post extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('User'),
+            Text::make('Provider'),
 
-            Text::make('Branch')->rules('required')->default('wagle')->filterable(),
+            Text::make('Provider Id'),
 
-            Text::make('Title')->rules('required'),
+            Text::make('Token'),
 
-            Trix::make('Content')->rules('required')->alwaysShow(),
+            Text::make('Refresh Token'),
 
-            Select::make('Content Format')->rules('required')->options(PostBranchEnum::kvCases())->default(PostBranchEnum::kDefault())->filterable(),
+            Text::make('Expires In'),
 
-            Number::make('Comment Count')->default(0)->exceptOnForms(),
+            Text::make('Token Secret'),
 
-            Number::make('Hit')->default(0)->exceptOnForms(),
+            KeyValue::make('Extra Information')->rules('json'),
 
-            Boolean::make('Is Blind')->filterable(),
+            DateTime::make('Created At')->exceptOnForms(),
 
-            HasMany::make('Post Comments'),
+            DateTime::make('Updated At')->exceptOnForms(),
         ];
     }
 

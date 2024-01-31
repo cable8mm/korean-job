@@ -2,6 +2,7 @@
 
 namespace App\Nova;
 
+use App\Traits\NovaGeneralAuthorized;
 use Illuminate\Http\Request;
 use Laravel\Nova\Fields\BelongsTo;
 use Laravel\Nova\Fields\Boolean;
@@ -13,6 +14,8 @@ use Laravel\Nova\Http\Requests\NovaRequest;
 
 class Notice extends Resource
 {
+    use NovaGeneralAuthorized;
+
     /**
      * The model the resource corresponds to.
      *
@@ -46,13 +49,13 @@ class Notice extends Resource
         return [
             ID::make()->sortable(),
 
-            BelongsTo::make('Admin'),
+            BelongsTo::make('Admin')->required()->hideWhenCreating()->hideWhenUpdating(),
 
             Text::make('Title')->rules('required'),
 
             Trix::make('content')->rules('required'),
 
-            Boolean::make('Is Top')->default(false),
+            Boolean::make('Is Top')->default(false)->filterable(),
 
             Boolean::make('Is Html')->default(false),
 
@@ -98,5 +101,13 @@ class Notice extends Resource
     public function actions(NovaRequest $request)
     {
         return [];
+    }
+
+    public static function newModel()
+    {
+        $model = parent::newModel();
+        $model->user_id = auth()->id();
+
+        return $model;
     }
 }
