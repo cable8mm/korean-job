@@ -35,6 +35,8 @@ Setting:
 ```sh
 composer install # install Project
 
+php artisan storage:link # for uploading images and files
+
 valet secure # set https
 
 valet use; # setup php@8.2

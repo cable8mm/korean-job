@@ -25,7 +25,7 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(['prefix' => LaravelLocalization::setLocale()], function () {
     Route::get('/', HomeController::class)->name('home');
-    Route::get('/job', [JobController::class, 'index'])->name('job');
+    Route::get('/job/{sort?}', [JobController::class, 'index'])->name('job')->whereIn('sort', ['popular']);
     Route::get('/job/{job}', [JobController::class, 'show'])->name('job.show')->whereNumber('job');
     Route::middleware('auth')->get('/job/create', [JobController::class, 'create'])->name('job.create');
     Route::middleware('auth')->post('/job', [JobController::class, 'store'])->name('job.store');

@@ -29,7 +29,7 @@ class AdminSeeder extends Seeder
             'remember_token' => Str::random(10),
             'created_at' => now(),
             'updated_at' => now(),
-            'timezone' => fake()->timezone('NZ'),
+            'timezone' => 'Pacific/Auckland',
         ]);
     }
 }
