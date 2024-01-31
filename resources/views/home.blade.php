@@ -1,8 +1,8 @@
 <x-app-layout>
     <div class="py-4">
         <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
-            <div class="grid grid-cols-3 gap-4 mb-4">
-                <div class="col-span-2">
+            <div class="lg:grid lg:grid-cols-3 lg:gap-4 lg:mb-4">
+                <div class="lg:col-span-2">
                     <x-widgets.banner-carousel />
                 </div>
                 <div>

@@ -55,7 +55,7 @@ class Banner extends Resource
 
             Text::make('Title')->required(),
 
-            Image::make('Image')->nullable(),
+            Image::make('Image')->nullable()->disk('public')->path('uploads/banner'),
 
             Text::make('Content')->hideFromIndex(),
 

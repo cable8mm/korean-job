@@ -1,4 +1,4 @@
-<div class="w-full max-w-md p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-7 dark:bg-gray-800 dark:border-gray-700">
+<div class="w-full mt-4 lg:mt-0 p-4 bg-white border border-gray-200 rounded-lg shadow sm:p-7 dark:bg-gray-800 dark:border-gray-700">
     <div class="flex items-center justify-between mb-4">
         <h5 class="text-xl font-bold leading-none text-gray-900 dark:text-white">{{ __('Popular Jobs') }}</h5>
         <a href="{{ route('job', 'popular') }}" class="text-sm font-medium text-blue-600 hover:underline dark:text-blue-500">

@@ -23,6 +23,7 @@ class BannerFactory extends Factory
             'admin_id' => 1,
             'tags' => Arr::join(fake()->randomElements(fake()->words(), null), ',') ?? null,
             'title' => fake()->sentence(),
+            'image' => fake()->imageUrl(640, 480, 'animals', true),
             'color_theme' => fake()->randomElement(BannerThemeEnum::kCases()),
             'content' => fake()->paragraph(2),
             'link_url' => fake()->url(),

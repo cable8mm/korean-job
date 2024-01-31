@@ -2,11 +2,9 @@
     <!-- Carousel wrapper -->
     <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
         @foreach($banners as $item)
-        <a href="{{ $item->link_url }}">
-            <div class="hidden duration-700 ease-in-out" data-carousel-item>
-                <img src="{{ asset($item->image ? 'storage/'.$item->image : 'https://flowbite.com/docs/images/carousel/carousel-1.svg' ) }}" class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2" alt="...">
-            </div>
-        </a>
+        <div class="hidden duration-700 ease-in-out" data-carousel-item>
+            <x-widgets.banner-element :item="$item" class="bg-orange" />
+        </div>
         @endforeach
     </div>
     <!-- Slider indicators -->
