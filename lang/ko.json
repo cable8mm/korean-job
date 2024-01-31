@@ -206,6 +206,7 @@
     "Please click the button below to verify your email address.": "이메일 주소를 확인하려면 아래 버튼을 클릭하십시오.",
     "Please confirm your password before continuing.": "계속하기 전에 패스워드를 입력해주세요.",
     "Please send a resume and completed employment application to the HR manager at abc@abc.com.": "이력서와 자소서를 abc@abc.com으로 보내주세요.",
+    "Popular Jobs": "인기 구인",
     "Precondition Failed": "전제 조건 실패",
     "Precondition Required": "전제 조건 필요",
     "Preview": "프리뷰",
@@ -309,6 +310,7 @@
     "Verify Your Email Address": "이메일 주소 확인",
     "View": "뷰",
     "View :name": "보기 :name",
+    "View all": "모두 보기",
     "Wages And Benefits": "혜택",
     "Web Server is Down": "웹 서버가 다운되었습니다",
     "Whoops!": "저런!",
@@ -321,7 +323,5 @@
     "You are logged in!": "로그인되었습니다!",
     "You are receiving this email because we received a password reset request for your account.": "귀하의 계정에 대한 비밀번호 재설정이 요청되어 이 메일이 발송되었습니다.",
     "You're logged in!": "로그인되었습니다!",
-    "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다.",
-    "Popular Jobs": "인기 구인",
-    "View all": "모두 보기"
+    "Your email address is unverified.": "이메일 주소가 확인되지 않았습니다."
 }
