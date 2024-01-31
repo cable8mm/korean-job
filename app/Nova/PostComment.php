@@ -41,6 +41,8 @@ class PostComment extends Resource
         'content',
     ];
 
+    public static $displayInNavigation = false;
+
     /**
      * Get the fields displayed by the resource.
      *

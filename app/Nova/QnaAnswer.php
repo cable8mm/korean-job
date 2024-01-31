@@ -39,7 +39,10 @@ class QnaAnswer extends Resource
      */
     public static $search = [
         'id',
+        'answer',
     ];
+
+    public static $displayInNavigation = false;
 
     /**
      * Get the fields displayed by the resource.

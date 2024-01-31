@@ -39,6 +39,8 @@ class QnaAnswerThumbUpdown extends Resource
         'id',
     ];
 
+    public static $displayInNavigation = false;
+
     /**
      * Get the fields displayed by the resource.
      *
