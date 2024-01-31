@@ -11,9 +11,14 @@ use Illuminate\View\View;
 
 class JobController extends Controller
 {
-    public function index(): View
+    public function index(?string $sort = null): View
     {
-        $jobs = Job::latest()->paginate();
+        $jobModel = match ($sort) {
+            'popular' => Job::popular()->latest(),
+            default => Job::latest(),
+        };
+
+        $jobs = $jobModel->paginate();
 
         return view('job.index', [
             'jobs' => $jobs,
