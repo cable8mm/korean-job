@@ -8,7 +8,7 @@ enum TextareaType: string
 {
     use EnumCasesTrait;
 
-    case html = 'HTML';
     case markdown = 'Markdown';
+    case html = 'HTML';
     case text = 'Text';
 }

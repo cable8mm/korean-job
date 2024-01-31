@@ -23,7 +23,7 @@ class QnaAnswer extends Model
         return $this->belongsTo(Qna::class);
     }
 
-    public function qnaThumbUpdowns(): HasMany
+    public function qnaAnswerThumbUpdowns(): HasMany
     {
         return $this->hasMany(QnaAnswerThumbUpdown::class);
     }
