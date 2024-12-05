@@ -2,7 +2,12 @@
     "name": "cable8mm/korean-job",
     "type": "project",
     "description": "This project is intended for both Korean employees and employers.",
-    "keywords": ["jpb", "website", "employee", "empolyer"],
+    "keywords": [
+        "jpb",
+        "website",
+        "employee",
+        "empolyer"
+    ],
     "license": "proprietary",
     "require": {
         "php": "^8.1",
@@ -10,7 +15,7 @@
         "guzzlehttp/guzzle": "^7.2",
         "laravel-lang/locales": "^2.5",
         "laravel/framework": "^10.10",
-        "laravel/nova": "~4.0",
+        "laravel/nova": "4.34.3",
         "laravel/sanctum": "^3.3",
         "laravel/socialite": "^5.11",
         "laravel/tinker": "^2.8",
