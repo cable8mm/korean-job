@@ -22,14 +22,14 @@ class Main extends Dashboard
     public function cards()
     {
         return [
-            (new NewUsers())->width('1/3'),
-            (new UsersPerDay())->width('2/3'),
-            (new NewJobs())->width('1/3'),
-            (new JobsPerDay())->width('2/3'),
-            (new NewPosts())->width('1/3'),
-            (new PostsPerDay())->width('2/3'),
-            (new NewQnas())->width('1/3'),
-            (new QnasPerDay())->width('2/3'),
+            (new NewUsers)->width('1/3'),
+            (new UsersPerDay)->width('2/3'),
+            (new NewJobs)->width('1/3'),
+            (new JobsPerDay)->width('2/3'),
+            (new NewPosts)->width('1/3'),
+            (new PostsPerDay)->width('2/3'),
+            (new NewQnas)->width('1/3'),
+            (new QnasPerDay)->width('2/3'),
         ];
     }
 }
