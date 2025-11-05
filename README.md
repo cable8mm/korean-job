@@ -1,4 +1,4 @@
-## About Project Korean Job
+# About Project Korean Job
 
 [![build & tests](https://github.com/cable8mm/korean-job/actions/workflows/tests.yml/badge.svg)](https://github.com/cable8mm/korean-job/actions/workflows/tests.yml)
 [![coding style](https://github.com/cable8mm/korean-job/actions/workflows/coding-style-php.yml/badge.svg)](https://github.com/cable8mm/korean-job/actions/workflows/coding-style-php.yml)
@@ -63,6 +63,8 @@ php artisan nova:user
 # make Name, Email Address, Password and create user
 ```
 
+You'd better use not mysql but sqlite while you has developed.
+
 Mail:
 
 ```sh
@@ -71,7 +73,7 @@ brew install mailpit
 brew services start mailpit
 ```
 
-Visit to http://localhost:8025
+Visit to <http://localhost:8025>
 
 ## Maintenance
 
