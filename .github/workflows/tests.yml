@@ -51,6 +51,12 @@ jobs:
       - name: Seeder
         run: php artisan migrate:fresh --seed --force
 
+      - name: Install NPM dependencies
+        run: npm install
+
+      - name: Compile assets
+        run: npm run build
+
       - name: Execute tests (Unit and Feature tests) via PHPUnit
         env:
           DB_CONNECTION: sqlite
