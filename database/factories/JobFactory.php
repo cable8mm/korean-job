@@ -4,10 +4,11 @@ namespace Database\Factories;
 
 use App\Enums\JobType;
 use App\Enums\TextareaType;
+use App\Models\Job;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Job>
+ * @extends Factory<Job>
  */
 class JobFactory extends Factory
 {
