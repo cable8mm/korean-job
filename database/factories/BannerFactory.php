@@ -4,11 +4,12 @@ namespace Database\Factories;
 
 use App\Enums\BannerLinkTypeEnum;
 use App\Enums\BannerThemeEnum;
+use App\Models\Banner;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Support\Arr;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Banner>
+ * @extends Factory<Banner>
  */
 class BannerFactory extends Factory
 {
