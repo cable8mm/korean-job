@@ -2,10 +2,11 @@
 
 namespace Database\Factories;
 
+use App\Models\Qna;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Qna>
+ * @extends Factory<Qna>
  */
 class QnaFactory extends Factory
 {
