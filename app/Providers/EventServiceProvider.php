@@ -6,6 +6,13 @@ use Illuminate\Auth\Events\Registered;
 use Illuminate\Auth\Listeners\SendEmailVerificationNotification;
 use Illuminate\Foundation\Support\Providers\EventServiceProvider as ServiceProvider;
 use Illuminate\Support\Facades\Event;
+use SocialiteProviders\Facebook\FacebookExtendSocialite;
+use SocialiteProviders\GitHub\GitHubExtendSocialite;
+use SocialiteProviders\Google\GoogleExtendSocialite;
+use SocialiteProviders\Instagram\InstagramExtendSocialite;
+use SocialiteProviders\Kakao\KakaoExtendSocialite;
+use SocialiteProviders\Manager\SocialiteWasCalled;
+use SocialiteProviders\Naver\NaverExtendSocialite;
 
 class EventServiceProvider extends ServiceProvider
 {
@@ -18,14 +25,14 @@ class EventServiceProvider extends ServiceProvider
         Registered::class => [
             SendEmailVerificationNotification::class,
         ],
-        \SocialiteProviders\Manager\SocialiteWasCalled::class => [
+        SocialiteWasCalled::class => [
             // add your listeners (aka providers) here
-            \SocialiteProviders\Facebook\FacebookExtendSocialite::class.'@handle',
-            \SocialiteProviders\GitHub\GitHubExtendSocialite::class.'@handle',
-            \SocialiteProviders\Google\GoogleExtendSocialite::class.'@handle',
-            \SocialiteProviders\Instagram\InstagramExtendSocialite::class.'@handle',
-            \SocialiteProviders\Kakao\KakaoExtendSocialite::class.'@handle',
-            \SocialiteProviders\Naver\NaverExtendSocialite::class.'@handle',
+            FacebookExtendSocialite::class.'@handle',
+            GitHubExtendSocialite::class.'@handle',
+            GoogleExtendSocialite::class.'@handle',
+            InstagramExtendSocialite::class.'@handle',
+            KakaoExtendSocialite::class.'@handle',
+            NaverExtendSocialite::class.'@handle',
         ],
     ];
 
