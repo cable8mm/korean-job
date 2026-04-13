@@ -39,7 +39,7 @@ class AuthenticatedSocialController extends Controller
 
         try {
             $providerUser = Socialite::driver($provider)->user();
-        } catch (\Exception $e) {
+        } catch (Exception $e) {
 
             return redirect()->route('login');
         }
