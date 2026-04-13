@@ -3,10 +3,11 @@
 namespace Database\Factories;
 
 use App\Enums\PostBranchEnum;
+use App\Models\Model;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
- * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Model>
+ * @extends Factory<Model>
  */
 class PostFactory extends Factory
 {
